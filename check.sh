@@ -11,8 +11,8 @@ fi
 MATCH=$(gcloud compute instances describe $INSTANCE --zone $INSTANCE_ZONE | grep "natIP: $STATIC_IP")
 if [ ! -z "$MATCH" ]; then
     echo "Correct IP assigned"
-    exit 1
+    exit 0
 else
     echo "Static IP is not assigned"
-    exit 0
+    exit 1
 fi
