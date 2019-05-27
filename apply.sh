@@ -24,4 +24,6 @@ if [ "$?" -eq "1" ]; then
 fi
 
 # Wait indefinetely
+echo "Waiting..."
 cat
+echo "Wait aborted"
