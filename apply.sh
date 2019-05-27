@@ -25,5 +25,5 @@ fi
 
 # Wait indefinetely
 echo "Waiting..."
-cat
+sleep infinity
 echo "Wait aborted"
