@@ -13,3 +13,13 @@ steps:
   args: ['push', 'gcr.io/$PROJECT_ID/$REPO_NAME:$COMMIT_SHA']
 - name: 'gcr.io/cloud-builders/docker'
   args: ['push', 'gcr.io/$PROJECT_ID/$REPO_NAME:latest']
+- name: 'gcr.io/cloud-builders/kubectl'
+  args: [
+            'set', 'image',
+            'deployment', 'gke-static-ip',
+            '-n', 'baljan',
+            'gke-static-ip=gcr.io/$PROJECT_ID/$REPO_NAME:$COMMIT_SHA'
+        ]
+  env:
+  - 'CLOUDSDK_COMPUTE_ZONE=europe-west1-b'
+  - 'CLOUDSDK_CONTAINER_CLUSTER=cluster'
